@@ -227,6 +227,53 @@ h3.group {
 
 .links { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; }
 
+/* ---------- Photos ---------- */
+.photo { margin: 0; }
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--selection);
+}
+.photo figcaption {
+  margin-top: .45rem;
+  font-size: .8rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.portrait {
+  float: right;
+  width: 9.5rem;
+  margin: .3rem 0 1rem 1.5rem;
+}
+.portrait img { aspect-ratio: 4 / 5; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+  clear: both;
+}
+.gallery img { aspect-ratio: 3 / 2; }
+
+#about::after { content: ""; display: table; clear: both; }
+
+:root[data-theme="dark"] .photo img { filter: brightness(.92); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .photo img { filter: brightness(.92); }
+}
+
+@media (max-width: 34rem) {
+  .portrait { float: none; width: min(11rem, 60%); margin: 0 auto 1.75rem; }
+  .portrait figcaption { text-align: center; }
+}
+
 /* ---------- Footer ---------- */
 footer {
   text-align: center;
